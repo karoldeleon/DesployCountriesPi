@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6af5544b.css",
+    "main.js": "/static/js/main.58541cdf.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/61913-mapa-mundi.jpg": "/static/media/61913-mapa-mundi.40713c1a227f06c83853.jpg",
+    "static/media/NoFound4041.png": "/static/media/NoFound4041.bdd1d80c64c8fcf67545.png",
+    "static/media/myimagenaddactiviti.png": "/static/media/myimagenaddactiviti.03edc89348ed023b9919.png",
+    "static/media/myImagehome.png": "/static/media/myImagehome.e4c6c57ee990bac11ab8.png",
+    "index.html": "/index.html",
+    "main.6af5544b.css.map": "/static/css/main.6af5544b.css.map",
+    "main.58541cdf.js.map": "/static/js/main.58541cdf.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6af5544b.css",
+    "static/js/main.58541cdf.js"
+  ]
+}
