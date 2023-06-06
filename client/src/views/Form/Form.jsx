@@ -101,7 +101,7 @@ const Form = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         if (formComplete) {
-        const response =await axios.post("http://localhost:3001/activities", formData);
+        const response =await axios.post("https://desploycountriespi-production.up.railway.app/activities", formData);
         alert(response.data)
         clearForm();
       }
