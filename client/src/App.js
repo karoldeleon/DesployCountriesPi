@@ -7,7 +7,12 @@ import NotFound from '../src/views/No Found/NoFound'
 import NavBar from './Components/NavBar/NavBar';
 import { Routes, Route, useLocation } from "react-router-dom";
 import axios from 'axios';
+<<<<<<< HEAD
 axios.defaults.baseURL = "https://desploycountriespi-production.up.railway.app";
+=======
+axios.defaults.baseURL = "https://desploycountriespi-production.up.railway.app/";
+
+>>>>>>> aa5e91ab1344efe65ba1012bfce9ab6794edd859
 
 function App() {
   const location = useLocation();
