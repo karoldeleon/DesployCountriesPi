@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {useParams} from "react-router-dom";
 import { getCountryDetail } from "../../redux/actions";
 import styles from "./Detail.module.css";
+import { NavLink } from "react-router-dom";
 
 const Detail = () => {
   const{ id } = useParams();  
@@ -41,6 +42,9 @@ const Detail = () => {
     {countryDetail.activities && countryDetail.activities.map(activity => (
       <div key={activity.id} >
         <h1 className={styles.titledetail}>{activity.name}</h1>
+        <NavLink to="/form" >
+        <button className={styles.btn} >CREATE ACTIVITY </button>
+        </NavLink>
       </div>
       
     ))}

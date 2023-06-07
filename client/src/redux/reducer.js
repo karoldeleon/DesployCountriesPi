@@ -42,6 +42,7 @@ import { GET_ALLCONTRIES ,
         };
     
     case FILTER_BY_CONTINENTS:
+      // const selecteContinent = action.payload;
          const allCountriesFiltered = action.payload === "All"
           ? null
           : state.AllCountries.filter(country => country.continents === action.payload);
@@ -50,7 +51,7 @@ import { GET_ALLCONTRIES ,
           ...state,
           filteredCountries: allCountriesFiltered
         };
-     
+    
     case FILTER_BY_ACTIVITIES:
          const selectedActivity = action.payload;
           if (selectedActivity === 'All') {
@@ -58,6 +59,7 @@ import { GET_ALLCONTRIES ,
               ...state,
               filteredCountries: null
             };
+          
           } else {
             const allCountriesFilteredByActivity = state.AllCountries.filter(country => {
               return country.activities.some(activity => activity.name === selectedActivity);
@@ -71,14 +73,38 @@ import { GET_ALLCONTRIES ,
 
     case ORDER_BY_NAME:
       const orderBy = action.payload;
-          if (orderBy === 'All') {
+      if (orderBy === 'All') {
+        return {
+          ...state,
+          filteredCountries: null
+        };
+      } else if (state.filteredCountries && state.filteredCountries.length > 0) {
+        console.log(orderBy);
+        if (orderBy === 'OrderAZ') {
+          const countriesByNameAsc = [...state.filteredCountries].sort(function(a, b){
+          if(a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
+          if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
+          return 0;
+            })
             return {
-              ...state,
-              filteredCountries: null
+            ...state,
+            filteredCountries: countriesByNameAsc
             };
+          }
+    
+          if (orderBy === 'OrderZA'){
+              const countriesByNameDes = [...state.filteredCountries].sort(function(a, b) {
+                if (a.name.toLowerCase() < b.name.toLowerCase()) { return 1; }
+                if (a.name.toLowerCase() > b.name.toLowerCase()) { return -1; }
+                return 0;
+              });
+              return {
+                ...state,
+                filteredCountries: countriesByNameDes
+              };
           } 
-
-          if (orderBy === 'OrderAZ') {
+      } else {
+            if (orderBy === 'OrderAZ') {
       const countriesByNameAsc = [...state.AllCountries].sort(function(a, b){
       if(a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
       if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
@@ -100,18 +126,38 @@ import { GET_ALLCONTRIES ,
             ...state,
             filteredCountries: countriesByNameDes
           };
-      } 
-      break;
+        } 
+      }
+      break
 
       case ORDER_BY_POPULATION:
       const orderByN = action.payload;
-          if (orderByN === 'All') {
-            return {
-              ...state,
-              filteredCountries: null
-            };
-          } 
+      if (orderByN === 'All') {
+        return {
+          ...state,
+          filteredCountries: null
+        };
+      } else if (state.filteredCountries && state.filteredCountries.length > 0) {
+       if (orderByN === 'Minortomajor') {
+       const MinorToMajor = [...state.filteredCountries].sort(function(a, b){
+        return a.population - b.population; })
+        
+        return {
+        ...state,
+        filteredCountries: MinorToMajor
+        };
+      }
 
+      if (orderByN === 'MajortoMinor') {
+        const MajorToMinor = [...state.filteredCountries].sort(function(a, b){
+          return b.population - a.population ; })
+          
+          return {
+          ...state,
+          filteredCountries: MajorToMinor
+          };
+      }
+      } else {
       if (orderByN === 'Minortomajor') {
        const MinorToMajor = [...state.AllCountries].sort(function(a, b){
         return a.population - b.population; })
@@ -129,15 +175,17 @@ import { GET_ALLCONTRIES ,
           return {
           ...state,
           filteredCountries: MajorToMinor
-          };
+        };
       }
-      break;
+    }
+    
+    break
 
-      default:
+    default:
       return {
         ...state
       };
   }
-};
+}
 
 export default reducer;

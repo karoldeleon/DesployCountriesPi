@@ -117,7 +117,7 @@ const Form = () => {
               className={styles.formInput} 
                 type="text"
                 name="name"
-                placeholder="Nombre de la Actividad"
+                placeholder="Activity Name"
                 value={formData.name}
                 onChange={handleChange}
               />

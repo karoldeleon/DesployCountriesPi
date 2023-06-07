@@ -8,10 +8,12 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import styles from '../FilterBar/FilterBar.module.css'; 
 
+
 const FilterBar = () => {
   const dispatch = useDispatch();
 
   const allActivities = useSelector((state) => state.AllActivities);
+
 
   const handleFilter = (event) => {
     const continents = event.target.value;
