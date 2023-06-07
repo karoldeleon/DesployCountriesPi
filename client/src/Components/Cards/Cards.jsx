@@ -17,7 +17,10 @@ const Cards = () => {
     dispatch(getCountries())
     dispatch(getActivities());
   }, [dispatch]);
-
+ 
+  useEffect(() => {
+    setCurrentPage(1); 
+  }, [allCountries]);
 
   const totalPages = Math.ceil(allCountries.length / countriesPerPage);
 
