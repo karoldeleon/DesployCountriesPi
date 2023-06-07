@@ -69,6 +69,7 @@ const Cards = () => {
         <div>
           <button className={styles.btn}>{currentPage}</button>
         </div>
+  
         <button
           className={styles.btn}
           onClick={handleNextPage}
