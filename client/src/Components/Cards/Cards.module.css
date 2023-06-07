@@ -5,12 +5,13 @@
     align-items: center;
     margin:  10px;
   }
- .btnflex{
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-left: 39%;
- }
+  .btnflex {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+
+
   .btn {
     padding: 0.1em 1em;
     background: none;
