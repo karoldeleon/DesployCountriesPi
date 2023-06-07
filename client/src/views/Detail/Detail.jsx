@@ -42,12 +42,12 @@ const Detail = () => {
     {countryDetail.activities && countryDetail.activities.map(activity => (
       <div key={activity.id} >
         <h1 className={styles.titledetail}>{activity.name}</h1>
-        <NavLink to="/form" >
-        <button className={styles.btn} >CREATE ACTIVITY </button>
-        </NavLink>
       </div>
       
     ))}
+     <NavLink to="/form" >
+        <button className={styles.btn} >CREATE ACTIVITY </button>
+        </NavLink>
     </div>
     </div>
   </div>
